@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <div class="search-box">
+            <button id="location-btn" class="icon-btn" title="Get Current Location">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                </svg>
+            </button>
+            <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off" spellcheck="false">
+            <button id="search-btn" class="icon-btn" title="Search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Fetching weather...</p>
+        </div>
+
+        <div id="error-message" class="hidden">
+            <p id="error-text">City not found. Please try again.</p>
+        </div>
+
+        <div id="weather-info" class="hidden fade-in">
+            <div class="weather-header">
+                <h2 id="city-name">--</h2>
+                <h3 id="country">--</h3>
+            </div>
+            <p id="date-time">--</p>
+            
+            <div class="temperature-container">
+                <img id="weather-icon" src="" alt="Weather Icon" class="hidden">
+                <h1 id="temperature">--</h1>
+                <div class="unit-toggle">
+                    <button id="celsius-btn" class="active">°C</button>
+                    <span>|</span>
+                    <button id="fahrenheit-btn">°F</button>
+                </div>
+            </div>
+            
+            <h3 id="weather-condition">--</h3>
+
+            <div class="weather-details">
+                <div class="detail">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    <div>
+                        <p>Feels Like</p>
+                        <p id="feels-like" class="detail-value">--</p>
+                    </div>
+                </div>
+                <div class="detail">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                    </svg>
+                    <div>
+                        <p>Humidity</p>
+                        <p id="humidity" class="detail-value">--</p>
+                    </div>
+                </div>
+                <div class="detail">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path>
+                    </svg>
+                    <div>
+                        <p>Wind Speed</p>
+                        <p id="wind-speed" class="detail-value">--</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
