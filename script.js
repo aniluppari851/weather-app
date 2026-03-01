@@ -1,6 +1,6 @@
 // Add your OpenWeatherMap API key here
 // You can get one for free at https://openweathermap.org/api
-const API_KEY = '877337fed2a1d44cced98b768edea2bd';
+const API_KEY = 'YOUR_API_KEY_HERE';
 
 // DOM Elements
 const cityInput = document.getElementById('city-input');
