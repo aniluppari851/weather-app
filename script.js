@@ -1,6 +1,8 @@
 // Add your OpenWeatherMap API key in the .env file
 // You can get one for free at https://openweathermap.org/api
-const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
+const API_KEY = import.meta.env?.VITE_OPENWEATHER_API_KEY || "";
+
+console.log("Weather App initialized. API Key present:", !!API_KEY);
 
 // DOM Elements
 const cityInput = document.getElementById('city-input');
@@ -51,10 +53,11 @@ searchBtn.addEventListener('click', () => {
     }
 });
 
-cityInput.addEventListener('keypress', (e) => {
+cityInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
         const city = cityInput.value.trim();
         if (city) {
+            console.log("Search triggered via Enter key for:", city);
             fetchWeatherData(city);
         }
     }
@@ -102,10 +105,12 @@ fahrenheitBtn.addEventListener('click', () => {
  */
 async function fetchWeatherData(city) {
     if (!API_KEY || API_KEY === 'YOUR_API_KEY_HERE') {
-        showError("Please set your OpenWeatherMap API key in script.js");
+        console.error("API Key is missing! Ensure VITE_OPENWEATHER_API_KEY is set in your environment.");
+        showError("Weather service is not configured correctly. Please check the API key.");
         return;
     }
 
+    console.log(`Fetching weather for: ${city}`);
     showLoading();
 
     try {
