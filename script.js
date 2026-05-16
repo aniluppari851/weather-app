@@ -1,7 +1,6 @@
-// Add your OpenWeatherMap API key here
+// Add your OpenWeatherMap API key in the .env file
 // You can get one for free at https://openweathermap.org/api
-// Note: In a production environment, this should be handled by a build tool or backend.
-const API_KEY = 'b0aaddbcae4f42445c4c7f7ce25d8185';
+const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
 // DOM Elements
 const cityInput = document.getElementById('city-input');
