@@ -1,8 +1,18 @@
-// Add your OpenWeatherMap API key in the .env file
-// You can get one for free at https://openweathermap.org/api
-const API_KEY = import.meta.env?.VITE_OPENWEATHER_API_KEY || "";
+// Try to get the API key from Vite's environment, or fallback to empty string
+let API_KEY = "";
+try {
+    // This check prevents the "TypeError: Cannot read properties of undefined"
+    if (typeof import.meta !== 'undefined' && import.meta.env) {
+        API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY || "";
+    }
+} catch (e) {
+    console.warn("Vite environment not detected. If you are running this without a build tool, the .env variables won't be available.");
+}
 
 console.log("Weather App initialized. API Key present:", !!API_KEY);
+if (!API_KEY) {
+    console.log("Tip: If you are testing locally, make sure to run 'npm run dev'. If deployed, ensure the environment variable is set in your host's dashboard.");
+}
 
 // DOM Elements
 const cityInput = document.getElementById('city-input');
