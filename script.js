@@ -1,6 +1,7 @@
 // Add your OpenWeatherMap API key here
 // You can get one for free at https://openweathermap.org/api
-const API_KEY = 'YOUR_API_KEY_HERE';
+// Note: In a production environment, this should be handled by a build tool or backend.
+const API_KEY = 'b0aaddbcae4f42445c4c7f7ce25d8185';
 
 // DOM Elements
 const cityInput = document.getElementById('city-input');
@@ -138,7 +139,7 @@ async function fetchWeatherData(city) {
  * @param {number} lon - Longitude
  */
 async function fetchWeatherDataByCoords(lat, lon) {
-    if (!API_KEY || API_KEY === '877337fed2a1d44cced98b768edea2bd') {
+    if (!API_KEY || API_KEY === 'YOUR_API_KEY_HERE') {
         showError("Please set your OpenWeatherMap API key in script.js");
         return;
     }
